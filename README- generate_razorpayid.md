@@ -37,8 +37,9 @@
 - https://github.com/razorpay/razorpay-python **(razorpay documentation for python- currently in use :: Feb' 19)**
 - https://docs.razorpay.com/docs/checkout-form *(checkout form)*
 - https://checkout.razorpay.com/v1/checkout.js *(checkout javascript)*
-- also refer razorpay_pg_flowchart.png in app directory.
 - **The CSV file of Live RazorPay & Test RazorPay API Credentials** is in app directory.
+- Razorpay PG Flowchart-
+![RP Flowchart](razorpay_pg_flowchart.png)
 
 
 #### AUTHOR-
