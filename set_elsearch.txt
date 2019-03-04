@@ -1,0 +1,101 @@
+
+Files Required:
+
+
+1. typesense-server-0.9.2-darwin-amd64
+Source: Can be downloaded from 'https://typesense.org/downloads/'
+
+
+
+
+######## Start Server (SHELL) #########
+
+
+cd [path/to/folder/typesense-server-0.9.2-darwin-amd64]
+mkdir /Users/reetchatterjee/Downloads/mypustak/typesense-data   ###### according to desired path for data directory
+./typesense-server --data-dir=path/to/typesense-data --api-key=password
+
+
+
+Files Required:
+
+1. books_data.json
+Source: Created by exporting the table 'mp.books' in json format
+
+books_table = '/Users/reetchatterjee/Downloads/mypustak/books_data.json'  ## path to books_data.json
+
+##########  Set client ########
+
+
+
+import typesense
+import json
+
+client = typesense.Client({
+                            'master_node': {
+                            'host': '103.217.220.149',
+                            'port': '8108',
+                            'protocol': 'http',
+                            'api_key': 'password'
+                            },
+        'timeout_seconds': 2
+})
+
+
+###### Generate book schema #############3
+
+
+books_schema = {
+  'name': 'mp_books',
+  'fields': [
+    {'name': 'book_id', 'type': 'int32' },
+    {'name': 'title', 'type': 'string' },
+  ],
+  'default_sorting_field': 'book_id'
+}
+
+client.collections.create(books_schema)
+
+
+
+############ Index Book 
+
+
+i = 0
+len = sum(1 for line in open(books_table))   ##### path to books_data.json file
+print(len)
+with open('/Users/reetchatterjee/Downloads/mypustak/books_data.json') as infile:     #######   ##### path to books_data.json file
+	lines = infile.readlines()
+	for line in lines:
+		line=line.replace("},","}")
+		if i == 0:
+			line=line.replace("[{"," {")
+		if i == len-1:
+			line=line.replace("}]","}")
+		i+=1
+		book_document = json.loads(line)
+		client.collections['mp_books'].documents.create(book_document)
+
+
+
+######## Search ###############
+
+
+query = 'harry'
+client = typesense.Client({
+		'master_node': {
+		'host': '103.217.220.149',
+		'port': '8108',
+		'protocol': 'http',
+		'api_key': 'password'
+		},
+	'timeout_seconds': 2
+})
+    
+search_parameters = {
+	'q'         :  query,
+	'query_by'  : 'title',
+	'sort_by'   : 'book_id:desc'
+	}
+result = client.collections['mp_books'].documents.search(search_parameters)
+

@@ -5,7 +5,7 @@ Usage Example
 
 # 1. Get Token 
 curl -X POST \
-http://127.0.0.1:8000/core/get_token/ \
+http://103.217.220.149:80/core/get_token/ \
 -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
 -F email=test2018@gmail.com \
 -F password=password
@@ -17,7 +17,7 @@ The token should be included as a header file as given below.
 
 # 2. Test Token
 curl -X GET \
-http://127.0.0.1:8000/core/hello/ \
+http://103.217.220.149:80/core/hello/ \
 -H 'Authorization: Token 9d2d3e9ca2cdbe2203584a47d9975206f01e581c' \
 -H 'cache-control: no-cache'
 
@@ -33,7 +33,7 @@ http://127.0.0.1:8000/core/hello/ \
 
 ### A) Send Reset Email
 curl -X POST \
-http://127.0.0.1:8000/core/forgot_password/ \
+http://103.217.220.149:80/core/forgot_password/ \
 -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
 -F email=test2018@gmail.com
 
@@ -41,7 +41,7 @@ http://127.0.0.1:8000/core/forgot_password/ \
 
 ### B) Reset Password
 curl -X POST \
-http://127.0.0.1:8000/core/reset_password/ \
+http://103.217.220.149:80/core/reset_password/ \
 -H 'Authorization: Token 59928dbe6d7687cf9a6c89de5673a07e8c5e253c' \
 -H 'cache-control: no-cache' \
 -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
@@ -52,15 +52,11 @@ http://127.0.0.1:8000/core/reset_password/ \
 
 # 3. Logout
 curl -X GET \
-http://127.0.0.1:8000/core/logout/ \
+http://103.217.220.149:80/core/logout/ \
 -H 'Authorization: Token 9d2d3e9ca2cdbe2203584a47d9975206f01e581c' \
 -H 'cache-control: no-cache'
 
 #### Description: The API deletes the token of the user making it invalid
-
-
-
-
 
 
 

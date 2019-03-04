@@ -1,0 +1,23 @@
+
+Files Required:
+
+
+1. typesense-server-0.9.2-darwin-amd64
+Source: Can be downloaded from 'https://typesense.org/downloads/'
+
+
+
+
+######## Start Server (SHELL) #########
+
+
+cd [path/to/folder/typesense-server-0.9.2-darwin-amd64]
+mkdir /Users/reetchatterjee/Downloads/mypustak/typesense-data   ###### according to desired path for data directory
+
+
+./typesense-server --data-dir=path/to/typesense-data --api-key=password #### according to created data directory
+
+
+
+Example:
+./typesense-server --data-dir=/Users/reetchatterjee/Downloads/mypustak/typesense-data --api-key=password

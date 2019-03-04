@@ -8,7 +8,7 @@ URL: http://103.217.220.149:80/myauth/logout/
 
 # Register
 
-URL: http://103.217.220.149:80/myauth/user_signup/
+URL: http://103.217.220.149/myauth/signup/
 
 
 LOGIN SAMPLE CURL REQUEST:

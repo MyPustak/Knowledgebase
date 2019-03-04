@@ -1,8 +1,8 @@
-### README- edit_address
+### README- add_address
 
 
 #### Description-
-- This API edits address details present in the *useraddresses* table.
+- This API inserts address details into the *useraddresses* table.
 - Data is passed to the API in JSON by frontend application.
 - POST Method used.
 - Assuming that pincode api is already applied.
@@ -10,7 +10,7 @@
 
 
 #### API Url-
-- http://103.217.220.149:80/api/v1/post/edit_address
+- http://103.217.220.149:80/api/v1/post/address_form
 - Headers: **KEY**- *Authorization*, **VALUE**- *Token da0a3bed7fd86b67f0cddd7f49248813a14f00f4*
 - The token belonged to **mukul.meri@gmail.com** login.
 
@@ -19,16 +19,15 @@
 	{
 		"data" :
 		{
-		"address_id" : 32934,
-		"title" : "test_final_2_update",
-	    "rec_name" : "aayush_test_2",
-	    "pincode" : 123456,
-	    "address" : "test_2",
-	    "landmark" : "test_2",
-	    "phone_no" : 1234567892,
-	    "state_name" : "test_2",
-	    "city_name" : "test_2",
-	    "country_name" : "test2",
+		"title" : "test_final",
+	    "rec_name" : "aayush_test",
+	    "pincode" : 12345,
+	    "address" : "test",
+	    "landmark" : "test",
+	    "phone_no" : 123456789,
+	    "state_name" : "test",
+	    "city_name" : "test",
+	    "country_name" : "test",
 	    "is_primary" : "Y"
 	}
 	}
@@ -36,20 +35,23 @@
 
 #### Output-
 - Postman Output *(when properly data passed)*
-![Postman Output](output_postman_edit_address_1.png)
+![Postman Output](output_postman_add_address_1.png)
 
 - Postman Output *(when improperly data passed)*
-![Postman Output](output_postman_edit_address_2.png)
+![Postman Output](output_postman_add_address_2.png)
 
 - MySQL Output
-![MySQL Output](output_mysql_edit_address_1.png)
+![MySQL Output](output_mysql_add_address.png)
 
 
 #### Improvements-
-- *Nothing to make.*
+- **executed the following queries in useraddresses table.**
+   - ALTER TABLE useraddresses DROP COLUMN country_id, DROP COLUMN state_id, DROP COLUMN city_id;
+- **execute all the queries in MyPustak Live database.** 
 
 
 #### AUTHOR-
 - **coded by AAYUSH GADIA** 
 - **contact info: gadia.aayush@gmail.com**
-- **written on: 1st March' 2019**
+- **written on: 19th Feb' 2019**
+- **updated on: 1st March' 2019** (converted it to token based & common models integrated)
