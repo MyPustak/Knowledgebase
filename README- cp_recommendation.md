@@ -6,6 +6,7 @@
 - Here we have to just pass- **Order_ID & Weight (in grams)** as input.
 - Data is passed to the API in JSON by frontend application.
 - POST Method used.
+-Get Courier Patner id https://track.clickpost.in/courier_partner
 
 
 #### API Url-
